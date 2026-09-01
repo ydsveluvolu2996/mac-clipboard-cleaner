@@ -1,22 +1,36 @@
 [build-system]
-requires = ["setuptools>=68"]
+requires = ["setuptools>=77"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "mac-clipboard-cleaner"
 version = "0.1.0"
-description = "Clean invisible characters and awkward whitespace from copied text"
+description = "Privacy-friendly CLI for cleaning invisible characters from copied text"
 readme = "README.md"
 requires-python = ">=3.9"
-license = { text = "MIT" }
+license = "MIT"
+license-files = ["LICENSE"]
 authors = [{ name = "ydsveluvolu2996" }]
-keywords = ["clipboard", "macos", "unicode", "text"]
+keywords = ["clipboard", "macos", "pdf", "unicode", "whitespace", "zero-width"]
 classifiers = [
   "Environment :: Console",
-  "License :: OSI Approved :: MIT License",
   "Operating System :: MacOS",
+  "Operating System :: OS Independent",
   "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+  "Topic :: Text Processing",
+  "Typing :: Typed",
 ]
+
+[project.urls]
+Homepage = "https://github.com/ydsveluvolu2996/mac-clipboard-cleaner"
+Repository = "https://github.com/ydsveluvolu2996/mac-clipboard-cleaner.git"
+Issues = "https://github.com/ydsveluvolu2996/mac-clipboard-cleaner/issues"
 
 [project.scripts]
 pbclean = "pbclean.cli:main"
@@ -26,3 +40,6 @@ package-dir = { "" = "src" }
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.setuptools.package-data]
+pbclean = ["py.typed"]
