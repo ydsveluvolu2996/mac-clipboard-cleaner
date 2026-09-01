@@ -2,7 +2,8 @@
 
 `pbclean` is a tiny, privacy-friendly command-line tool for cleaning text copied
 from PDFs and web pages. It removes invisible Unicode characters, normalizes
-line endings, and makes pasted text easier to reuse.
+line endings, and makes pasted text easier to reuse. On macOS it can clean the
+clipboard in place.
 
 The project uses only Python's standard library. Text is processed locally and
 is never uploaded anywhere.
@@ -42,7 +43,23 @@ To retain spaces and tabs at the ends of lines:
 pbclean --keep-trailing-whitespace notes.txt
 ```
 
-Native macOS clipboard integration is planned for the next release.
+### macOS clipboard
+
+Read directly from the current clipboard:
+
+```sh
+pbclean --clipboard
+```
+
+Clean the clipboard and immediately copy the result back:
+
+```sh
+pbclean --clipboard --copy
+```
+
+You can also send file or standard-input content to the clipboard with
+`--copy`. The clipboard options use macOS's built-in `pbpaste` and `pbcopy`
+commands; no additional dependency or clipboard permission is required.
 
 ## License
 
